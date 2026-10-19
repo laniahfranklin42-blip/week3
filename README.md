@@ -229,3 +229,48 @@ The STUDENT_PHONE table uses a composite primary key consisting of student_id an
 Within the CHECKOUT table, one equipment item can have multiple checkout records over time. However, for each piece of equipment, only one checkout record may have the return_date field set to NULL at a time, indicating an active checkout. This rule must be enforced in the MySQL implementation.
 
 The primary keys uniquely identify each record, while the foreign keys preserve the relationships between the tables. These relationships follow the cardinality and participation constraints identified in the conceptual design.
+Part 12 — Database Design Questions
+
+1. What is the mini-world?
+
+Mini-world is a school equipment checkout system that stores information about students, equipment, category of the equipment, and checkout details.
+
+2. What are the entity types?
+
+Entity types are STUDENT, EQUIPMENT, CATEGORY, and CHECKOUT.
+
+3. Give an example of an entity instance.
+
+An example of an entity instance can be a student with student_id 101 and name Maria’s Lopez.
+
+4. What are the keys?
+
+The attributes that is defined as keys include student_id, equipment_id, category_id, checkout_id, and student_id in STUDENT_PHONE.
+
+5. What are simple attributes?
+
+Simple attributes or atomic attributes are those that cannot be further subdivided, for instance, email, equipment_name, serial_number.
+
+6. What is a composite attribute?
+
+Composite attribute, on the other hand, is composed of two or more simple attributes, for example, student’s name in STUDENT entity.
+
+7. What is a multivalued attribute?
+
+Multivalued attributes are attributes that can have several values, for instance, student’s phone number, which is why it is stored in a different STUDENT_PHONE table.
+
+8. What is a derived attribute?
+
+Derived attribute’s value is calculated/apportioned from another attribute, for instance, age in STUDENT entity is derived from the student’s birth_date.
+
+9. Give an example of a one-to-many-relationship.
+
+An example of a one-to-many-relationship is between category and equipment entities because one category can have many pieces of the equipment, but each piece of equipment can have only one category.
+
+10. Explain total and partial participation.
+
+Total participation means that all entity instances participate in the relationship, for instance, all CHECKOUT items are related to a student and equipment item. Partial participation, on the other hand, implies that only some entity instances participate in a relationship, which applies to STUDENT and EQUIPMENT entities in relation to CHECKOUT entity.
+
+11. Explain one design decision made when converting the conceptual model into the logical model.
+
+One of the design decisions I made was to separate student phone numbers from the STUDENT entity and store them in a different STUDENT_PHONE table because students can have multiple phone numbers. Another decision was to separate composite student name attribute into first_name and last_name and to store the student’s date of birth rather than age.
