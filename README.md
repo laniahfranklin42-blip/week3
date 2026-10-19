@@ -205,54 +205,12 @@ A piece of equipment can only have one active checkout at a time.
 | STUDENT — CHECKOUT | STUDENT (0,N) Partial | CHECKOUT (1,1) Total |
 | EQUIPMENT — CHECKOUT | EQUIPMENT (0,N) Partial | CHECKOUT (1,1) Total |
 ## Part 7 - Logical Model
-
-The conceptual design is converted into relational tables using primary keys, foreign keys, and appropriate MySQL data types.
-
-The tables are listed below.
-
-### STUDENT Table
-
-| Column | Data Type | Key |
-|---|---|---|
-| student_id | INT | PK |
-| first_name | VARCHAR(50) | |
-| last_name | VARCHAR(50) | |
-| email | VARCHAR(100) | |
-| birth_date | DATE | |
-
-### STUDENT_PHONE Table
-
-| Column | Data Type | Key |
-|---|---|---|
-| student_id | INT | PK, FK |
-| phone_number | VARCHAR(20) | PK |
-
-### CATEGORY Table
-
-| Column | Data Type | Key |
-|---|---|---|
-| category_id | INT | PK |
-| category_name | VARCHAR(100) | |
-| description | VARCHAR(255) | |
-
-### EQUIPMENT Table
-
-| Column | Data Type | Key |
-|---|---|---|
-| equipment_id | INT | PK |
-| category_id | INT | FK |
-| equipment_name | VARCHAR(100) | |
-| serial_number | VARCHAR(100) | |
-| purchase_date | DATE | |
-| status | VARCHAR(30) | |
-
 ### CHECKOUT Table
 
 | Column | Data Type | Key |
 |---|---|---|
 | checkout_id | INT | PK |
 | student_id | INT | FK |
-
 | equipment_id | INT | FK |
 | checkout_date | DATE | |
 | due_date | DATE | |
